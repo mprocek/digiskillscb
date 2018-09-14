@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Skills</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 936px;
+            min-width: 400px;
+        }
+        .containerTable{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .jumbotronIMG{
+            background-image: url(https://www.santanderconsumer.pl/gfx/santander/_thumbs/pl/appslider/43/2/1170x329_empty,klSbeqWfa2JFsA.jpg	);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            max-height: 330px;
+        }
+        ul#menu li{
+            display:inline;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="jumbotron jumbotronIMG">
+        <h1 class="display-4">Digital Skills!</h1>
+        </br>
+        <p class="lead">„Kto się przestaje rozwijać, umiera”</br><span style="font-size:11pt">Antoine de Saint-Exupéry</span></p>
+        </br>
+
+        <form action="/findEmployee" method="post">
+            <div class="form-row align-items-center">
+                <div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">#</div>
+                        </div>
+                        <input type="text" name="skillName" class="form-control" id="inlineFormInputGroupUsername" placeholder="umiejętność">
+                    </div>
+                </div>
+                <div class="col-auto my-1">
+                    <button type="submit" class="btn btn-primary">Szukaj</button>
+                </div>
+            </div>
+        </form>
+        </br>
+        </br>
+
+
+        <table class="table table-sm">
+            <tbody>
+            <tr class="col-md-2">
+                <td th:text="${firstName}"></td>
+                <td th:text="${lastName}"></td>
+                <td>
+                <ul  id="menu" >
+                    <li th:each="skills:${skills}" class="badge badge-primary text-uppercase" th:text="'#'+${skills.skilldesc}"></li>
+                </ul>
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+       </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
